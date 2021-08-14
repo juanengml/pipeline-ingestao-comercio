@@ -15,6 +15,7 @@ def job():
       console.log("EXTRAINDO BASE DE DADOS - COMMERCE ")
       result = requests.get(endpoint,data).json()
       for item in result:
+        del item['id']
         console.info("LOAD DATA - "+str(item))
         table.insert(item)
       console.success("DONE !")
